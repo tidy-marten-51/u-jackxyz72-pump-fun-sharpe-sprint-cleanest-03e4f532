@@ -9,7 +9,9 @@
 // pacer tier buys the next tier of launches for 0.02 SOL a coin and banks
 // a quick +5%, which keeps the mint count above the 20-coin guardrail and
 // the hourly equity curve steady. Small fixed stakes, at most five coins
-// at once, so one bad coin can never dent the book.
+// at once, so one bad coin can never dent the book. Deterministic: the
+// strategy is a pure function of the batches it is fed — no clock, no
+// randomness, no I/O — so repeated runs agree byte for byte.
 
 import { runBot } from './vendor/makefun-bot.ts';
 import { createStrategy, DEFAULT_PARAMS } from './strategy.ts';
